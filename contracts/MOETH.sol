@@ -1,21 +1,11 @@
-# $MOETH – Moeth Chaincoin
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
 
-Smart contract for $MOETH, the MemeLux token inspired by champagne culture and Ethereum power.
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-## 🛠 Contract Summary
-
-- **Token Name**: Moeth Chaincoin  
-- **Symbol**: $MOETH  
-- **Total Supply**: 7,703,711,000  
-- **Standard**: ERC-20  
-- **Decimals**: 18  
-
-## ✅ Audit & Security
-
-This contract uses the audited OpenZeppelin ERC-20 implementation.  
-Security checks will be performed using Slither, MythX and Sourcify.  
-All audit files will be placed in the `/audits` folder.
-
-## 📜 Contract Address
-
-TBA after mainnet deployment.
+contract MOETH is ERC20, Ownable {
+    constructor() ERC20("Moeth Chaincoin", "MOETH") {
+        _mint(msg.sender, 7703711000 * 10 ** decimals());
+    }
+}
